@@ -17,7 +17,7 @@ head = ('<!doctype html>\n<html lang="ko">\n<head>\n<meta charset="utf-8">\n'
 out = pathlib.Path('docs'); out.mkdir(exist_ok=True)
 (out / 'index.html').write_text(head + body.strip() + '\n</body>\n</html>\n', encoding='utf8')
 (out / '.nojekyll').write_text('')
-import shutil; shutil.copy('office.jpg', out / 'office.jpg')
+import shutil; shutil.copy('office.jpg', out / 'office.jpg'); shutil.copy('qr.png', out / 'qr.png')
 print('docs/index.html 생성 완료')
 
 # /admin 주소: 관리자 화면이 있는 미리보기 페이지로 이동(관리 권한이 있는 로그인 계정만 열림)
@@ -43,4 +43,5 @@ import zipfile
 with zipfile.ZipFile('hosting-upload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
     z.write(out / 'index.html', 'index.html')
     z.write(out / 'office.jpg', 'office.jpg')
+    z.write(out / 'qr.png', 'qr.png')
 print('hosting-upload.zip 생성 완료')
