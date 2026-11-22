@@ -55,8 +55,10 @@ dl.info dd{margin:0;min-width:0}
 .maps{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .map{display:inline-block;background:var(--brand);color:var(--brand-fg);padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:700}
 .sns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.sns a{display:flex;flex-direction:column;padding:16px 18px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
+.sns a{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
+.sns a span.t{display:flex;flex-direction:column;min-width:0;line-height:1.4}
 .sns a small{font-weight:400;color:var(--muted);font-size:.85rem}
+.sns svg{width:44px;height:44px;flex:none;border-radius:10px}
 .sns a[aria-disabled="true"]{opacity:.55;cursor:default}
 footer{background:var(--brand);color:var(--brand-fg);padding-block:32px;font-size:.92rem}
 footer p{margin:2px 0}
@@ -87,11 +89,11 @@ footer p{margin:2px 0}
     <h2>매물과 소식 더 보기</h2>
     <p class="lead">최신 매물과 시장 이야기는 아래 채널에서 확인하실 수 있습니다.</p>
     <div class="sns">
-      <a href="#" data-link="naver" target="_blank" rel="noopener">네이버 매물 보기<small>현재 등록 매물</small></a>
-      <a href="#" data-link="kakao" target="_blank" rel="noopener">카카오톡 오픈채팅<small>1:1 빠른 상담</small></a>
-      <a href="#" data-link="blog" target="_blank" rel="noopener">블로그<small>지역 시황·매물 글</small></a>
-      <a href="#" data-link="youtube" target="_blank" rel="noopener">유튜브 채널<small>영상으로 보는 매물</small></a>
-      <a href="#" data-link="insta" target="_blank" rel="noopener">인스타그램<small>사진으로 보는 소식</small></a>
+      <a href="#" data-link="naver" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#03c75a"/><path d="M13 12h6.6l5 8.2V12H31v20h-6.4l-5.2-8.4V32H13z" fill="#fff"/></svg><span class="t">네이버 매물 보기<small>현재 등록 매물</small></span></a>
+      <a href="#" data-link="kakao" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#fee500"/><ellipse cx="22" cy="20" rx="12" ry="9.5" fill="#3a1d1d"/><path d="M15 27l-2 6 7-4z" fill="#3a1d1d"/></svg><span class="t">카카오톡 오픈채팅<small>1:1 빠른 상담</small></span></a>
+      <a href="#" data-link="blog" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#1ec800"/><rect x="11" y="10" width="22" height="24" rx="3" fill="#fff"/><path d="M15 17h14M15 22h14M15 27h8" stroke="#1ec800" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">블로그<small>지역 시황·매물 글</small></span></a>
+      <a href="#" data-link="youtube" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#ff0000"/><rect x="8" y="12" width="28" height="20" rx="6" fill="#fff"/><path d="M19 17.5v9l8-4.5z" fill="#ff0000"/></svg><span class="t">유튜브 채널<small>영상으로 보는 매물</small></span></a>
+      <a href="#" data-link="insta" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fdc468"/><stop offset=".5" stop-color="#df4996"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="44" height="44" fill="url(#ig)"/><rect x="10" y="10" width="24" height="24" rx="7" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="22" cy="22" r="5.6" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="29" cy="15" r="1.6" fill="#fff"/></svg><span class="t">인스타그램<small>사진으로 보는 소식</small></span></a>
     </div>
   </div>
 </section>
