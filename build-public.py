@@ -18,3 +18,21 @@ out = pathlib.Path('docs'); out.mkdir(exist_ok=True)
 (out / 'index.html').write_text(head + body.strip() + '\n</body>\n</html>\n', encoding='utf8')
 (out / '.nojekyll').write_text('')
 print('docs/index.html 생성 완료')
+
+# /admin 주소: 관리자 화면이 있는 미리보기 페이지로 이동(관리 권한이 있는 로그인 계정만 열림)
+ADMIN_URL = 'https://claude.ai/artifact/UftvmsuheLYPmhB2TecqBp#admin'
+admin = out / 'admin'; admin.mkdir(exist_ok=True)
+(admin / 'index.html').write_text(f'''<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="refresh" content="0;url={ADMIN_URL}">
+<title>관리자 페이지 이동</title>
+<style>body{{font-family:system-ui,"Malgun Gothic",sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#fbf6ec;color:#1c2623;text-align:center;padding:16px}}
+a{{display:inline-block;margin-top:12px;background:#046a38;color:#f9ebd7;padding:14px 24px;border-radius:6px;text-decoration:none;font-weight:700}}</style></head>
+<body><div><h1 style="font-size:1.3rem">관리자 페이지로 이동합니다</h1>
+<p>자동으로 이동하지 않으면 아래 버튼을 눌러 주세요.<br>관리 권한이 있는 계정으로 로그인해야 열립니다.</p>
+<a href="{ADMIN_URL}">관리자 페이지 열기</a></div>
+<script>location.replace("{ADMIN_URL}");</script></body></html>
+''', encoding='utf8')
+print('docs/admin/index.html 생성 완료')
