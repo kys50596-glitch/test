@@ -37,3 +37,10 @@ a{{display:inline-block;margin-top:12px;background:#046a38;color:#f9ebd7;padding
 <script>location.replace("{ADMIN_URL}");</script></body></html>
 ''', encoding='utf8')
 print('docs/admin/index.html 생성 완료')
+
+# 웹호스팅 업로드용 zip (index.html + office.jpg)
+import zipfile
+with zipfile.ZipFile('hosting-upload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+    z.write(out / 'index.html', 'index.html')
+    z.write(out / 'office.jpg', 'office.jpg')
+print('hosting-upload.zip 생성 완료')
