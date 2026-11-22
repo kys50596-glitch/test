@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="의정부 녹양역 인근 이편한세상녹양역부동산. 매매·전세·월세·상가 상담 031-873-5454">
+<title>이편한세상녹양역부동산</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap">
+<style>
+/* Layout: 상단 고정 연락처 바 → 히어로 → 중개 분야 → 녹양역 동네 안내 → 오시는 길 → 사업자 정보 푸터 */
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --fg:#1c2623; --muted:#5b6762;
+  --line:#dde2df; --brand:#046a38; --brand-fg:#f9ebd7; --accent:#e34222; --accent-fg:#ffffff;
+  --band:#f9ebd7;
+  --serif:"Noto Serif KR","Batang",serif; --sans:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121816; --surface:#1a2320; --fg:#eef2f0; --muted:#a3b0aa; --line:#2c3a35;
+  --brand:#5fb598; --brand-fg:#0c1512; --accent:#ee8a55; --accent-fg:#1a0e06; --band:#17211d; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#121816; --surface:#1a2320; --fg:#eef2f0; --muted:#a3b0aa; --line:#2c3a35;
+  --brand:#5fb598; --brand-fg:#0c1512; --accent:#ee8a55; --accent-fg:#1a0e06; --band:#17211d; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.7;margin:0;word-break:keep-all}
+h1,h2,h3{font-family:var(--serif);line-height:1.3;text-wrap:balance;margin:0}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--brand)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--brand);color:var(--brand-fg)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px;flex-wrap:wrap}
+.top b{font-family:var(--serif);font-size:1.05rem}
+.top a{text-decoration:none;font-weight:700;white-space:nowrap}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{background:var(--band);padding-block:56px 48px;margin-top:0}
+.hero .tag{display:inline-block;font-size:.9rem;font-weight:700;color:var(--brand);letter-spacing:.04em;margin-bottom:12px}
+.hero h1{font-size:clamp(1.9rem,6vw,3rem);font-weight:800;max-width:18em}
+.hero p{max-width:34em;color:var(--muted);margin:16px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;flex-direction:column;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:700;min-width:210px}
+.btn small{font-weight:400;font-size:.82rem;opacity:.85}
+.btn.p{background:var(--accent);color:var(--accent-fg)}
+.btn.s{background:var(--brand);color:var(--brand-fg)}
+section{padding-block:52px}
+section h2{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:8px}
+.lead{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;min-width:0}
+.card h3{font-size:1.15rem;margin-bottom:6px;color:var(--brand)}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.band{background:var(--band)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.two>*{min-width:0}
+ul.pts{margin:0;padding-left:1.2em}
+ul.pts li{margin-bottom:8px}
+dl.info{margin:0;display:grid;grid-template-columns:7.5em 1fr;gap:10px 14px}
+dl.info dt{font-weight:700;color:var(--brand)}
+dl.info dd{margin:0;min-width:0}
+.num{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+.copy{margin-left:8px;font:inherit;font-size:.8rem;padding:2px 10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;cursor:pointer}
+.maps{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.map{display:inline-block;background:var(--brand);color:var(--brand-fg);padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:700}
+.sns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.sns a{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
+.sns a span.t{display:flex;flex-direction:column;min-width:0;line-height:1.4}
+.sns a small{font-weight:400;color:var(--muted);font-size:.85rem}
+.sns svg{width:44px;height:44px;flex:none;border-radius:10px}
+.sns a[aria-disabled="true"]{opacity:.55;cursor:default}
+footer{background:var(--brand);color:var(--brand-fg);padding-block:32px;font-size:.92rem}
+footer dl{margin:0;display:grid;grid-template-columns:6em 1fr;gap:6px 14px;max-width:520px}
+footer dt{font-weight:700;opacity:.8}
+footer dd{margin:0;min-width:0}
+.svc .card{border:0;padding:26px 22px;min-height:150px}
+.svc .card h3{font-size:1.25rem;margin-bottom:8px;color:inherit}
+.svc .card p{color:inherit;opacity:.92}
+.svc .c1{background:#046a38;color:#f9ebd7}
+.svc .c2{background:#e34222;color:#fff6ea}
+.svc .c3{background:#f9ebd7;color:#1f2a24;box-shadow:inset 0 0 0 2px #046a38}
+.svc .c4{background:#0b3d26;color:#f9ebd7}
+.notice{background:var(--accent);color:var(--accent-fg);text-align:center;padding:10px max(16px,env(safe-area-inset-left,0px));font-weight:700;white-space:pre-line}
+.lst{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.lcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.lcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--band)}
+.lcard .lb{padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.lcard .badge{align-self:flex-start;background:var(--brand);color:var(--brand-fg);font-size:.78rem;font-weight:700;padding:1px 10px;border-radius:99px}
+.lcard h3{font-size:1.05rem}
+.lcard .pr{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.lcard p{margin:0;color:var(--muted);font-size:.92rem;white-space:pre-line}
+.adm{background:var(--band);border-bottom:3px solid var(--brand);padding-block:32px}
+.adm .card{margin-bottom:16px}
+.adm label{display:block;font-weight:700;font-size:.92rem;margin:10px 0 4px}
+.adm input[type=text],.adm select,.adm textarea{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--fg)}
+.adm button{font:inherit;font-weight:700;padding:10px 18px;border-radius:5px;border:1px solid var(--brand);background:var(--surface);color:var(--brand);cursor:pointer}
+.adm button.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.adm .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 12px}
+.adm .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;position:sticky;bottom:0;background:var(--band);padding-block:12px}
+.adm .item{display:flex;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.adm .item img{width:56px;height:42px;object-fit:cover;border-radius:4px;flex:none;background:var(--band)}
+.adm .item span{flex:1;min-width:0;overflow-wrap:anywhere}
+.adm .prev{max-width:160px;max-height:120px;display:block;margin-top:8px;border-radius:4px}
+.adm .msg{font-weight:700}
+.adm .iq{padding:10px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.adm .iq .h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:700}
+.adm .iq p{margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.adm .iq .a{display:flex;gap:8px;flex-wrap:wrap}
+.adm .iq select{width:auto}
+.adm-link{color:inherit;opacity:.7;font-size:.85rem;display:inline-block;margin-top:14px}
+@media (max-width:700px){.two{grid-template-columns:1fr}.btn{width:100%}dl.info{grid-template-columns:1fr;gap:0}dl.info dd{margin-bottom:12px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <b>이편한세상녹양역부동산</b>
+    <a href="tel:0318735454">☎ 031-873-5454</a>
+  </div>
+</header>
+
+<div id="notice" class="notice" hidden></div>
+<section id="admin-panel" class="adm" hidden></section>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="tag">의정부 녹양동 · 공인중개사사무소</span>
+    <h1>녹양역 일대 매매·전세·월세,<br>10년 경력 공인중개사가 직접 상담합니다</h1>
+    <p>아파트, 상가, 토지까지 가격 흐름과 주변 환경을 솔직하게 말씀드립니다. 급하지 않으셔도 편하게 전화 주세요.</p>
+    <div class="btns">
+      <a class="btn p" href="tel:01033645121">대표 휴대폰 상담<small>010-3364-5121</small></a>
+      <a class="btn s" href="tel:0318735454">사무실 전화<small>031-873-5454</small></a>
+    </div>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap">
+    <h2>매물과 소식 더 보기</h2>
+    <p class="lead">최신 매물과 시장 이야기는 아래 채널에서 확인하실 수 있습니다.</p>
+    <div class="sns">
+      <a href="#" data-link="naver" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#03c75a"/><path d="M13 12h6.6l5 8.2V12H31v20h-6.4l-5.2-8.4V32H13z" fill="#fff"/></svg><span class="t">네이버 매물 보기<small>현재 등록 매물</small></span></a>
+      <a href="#" data-link="kakao" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#fee500"/><ellipse cx="22" cy="20" rx="12" ry="9.5" fill="#3a1d1d"/><path d="M15 27l-2 6 7-4z" fill="#3a1d1d"/></svg><span class="t">카카오톡 오픈채팅<small>1:1 빠른 상담</small></span></a>
+      <a href="#" data-link="blog" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#1ec800"/><rect x="11" y="10" width="22" height="24" rx="3" fill="#fff"/><path d="M15 17h14M15 22h14M15 27h8" stroke="#1ec800" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">블로그<small>지역 시황·매물 글</small></span></a>
+      <a href="#" data-link="youtube" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#ff0000"/><rect x="8" y="12" width="28" height="20" rx="6" fill="#fff"/><path d="M19 17.5v9l8-4.5z" fill="#ff0000"/></svg><span class="t">유튜브 채널<small>영상으로 보는 매물</small></span></a>
+      <a href="#" data-link="insta" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fdc468"/><stop offset=".5" stop-color="#df4996"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="44" height="44" fill="url(#ig)"/><rect x="10" y="10" width="24" height="24" rx="7" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="22" cy="22" r="5.6" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="29" cy="15" r="1.6" fill="#fff"/></svg><span class="t">인스타그램<small>사진으로 보는 소식</small></span></a>
+      <a href="#" data-link="form" data-hide-empty="1" target="_blank" rel="noopener" hidden><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#12503f"/><rect x="11" y="9" width="22" height="26" rx="3" fill="#fff"/><path d="M15 17h14M15 22h14M15 27h7" stroke="#12503f" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">온라인 문의<small>남기시면 연락드립니다</small></span></a>
+    </div>
+  </div>
+</section>
+
+<section id="listings-sec" hidden>
+  <div class="wrap">
+    <h2>추천 매물</h2>
+    <p class="lead">문의하시면 위치와 조건을 자세히 안내해 드립니다.</p>
+    <div class="lst" id="listings"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>중개 분야</h2>
+    <p class="lead">거래 종류에 맞춰 필요한 확인 사항을 꼼꼼히 챙겨드립니다.</p>
+    <div class="grid svc">
+      <div class="card c1"><h3>아파트 매매</h3><p>실거래 사례와 현재 호가를 비교해 적정 가격대를 안내합니다.</p></div>
+      <div class="card c2"><h3>전세 · 월세</h3><p>등기부 권리관계, 보증금 안전 여부까지 계약 전에 함께 확인합니다.</p></div>
+      <div class="card c3"><h3>상가 · 사무실</h3><p>유동인구와 업종 적합성을 살펴 임대·매매를 도와드립니다.</p></div>
+      <div class="card c4"><h3>토지 · 기타</h3><p>용도지역과 개발 여건을 확인한 뒤 거래 방향을 정리해 드립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap two">
+    <div>
+      <h2>녹양동 생활권 안내</h2>
+      <p class="lead" style="margin:0">매물을 보시기 전에 동네부터 먼저 설명해 드립니다.</p>
+    </div>
+    <ul class="pts">
+      <li>수도권 전철 1호선 녹양역 인근 생활권</li>
+      <li>단지별 시세와 최근 거래 흐름 상담</li>
+      <li>학군, 마트, 병원 등 생활 편의 안내</li>
+      <li>매도·매수·임대·임차 모두 상담 가능</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap two">
+    <div>
+      <h2>오시는 길</h2>
+      <p class="lead">전화로 방문 시간을 말씀해 주시면 미리 준비해 두겠습니다.</p>
+      <div class="maps">
+        <a class="map" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">네이버지도</a>
+        <a class="map" href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">카카오맵</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">구글지도</a>
+      </div>
+    </div>
+    <dl class="info">
+      <dt>상호</dt><dd>이편한세상녹양역부동산</dd>
+      <dt>주소</dt><dd>경기도 의정부시 녹양로34번길 47, 상가 104호</dd>
+      <dt>사무실</dt><dd><span class="num" id="t1">031-873-5454</span><button class="copy" data-copy="t1" type="button">복사</button></dd>
+      <dt>휴대폰</dt><dd><span class="num" id="t2">010-3364-5121</span><button class="copy" data-copy="t2" type="button">복사</button></dd>
+      <dt>등록번호</dt><dd>가 040-4280</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <dl>
+      <dt>상호</dt><dd>이편한세상녹양역부동산</dd>
+      <dt>등록번호</dt><dd>가 040-4280</dd>
+      <dt>주소</dt><dd>경기도 의정부시 녹양로34번길 47, 상가 104호</dd>
+      <dt>사무실</dt><dd>031-873-5454</dd>
+      <dt>휴대폰</dt><dd>010-3364-5121</dd>
+    </dl>
+  </div>
+</footer>
+
+<script type="application/json" id="site-data">{"notice":"","links":{"naver":"https://fin.land.naver.com/realtors/kys50596","kakao":"https://open.kakao.com/o/sGoEftVi","blog":"https://blog.naver.com/kys5121","youtube":"https://www.youtube.com/@%EC%9D%B4%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81%EB%85%B9%EC%96%91%EC%97%AD","insta":"https://instagram.com/kys50596","form":""},"listings":[]}</script>
+<script>
+(function(){
+var data=JSON.parse(document.getElementById('site-data').textContent);
+var LABELS={naver:'네이버 매물 보기',kakao:'카카오톡 오픈채팅',blog:'블로그',youtube:'유튜브 채널',insta:'인스타그램',form:'온라인 문의 폼(구글 폼 등, 비우면 버튼 숨김)'};
+var TYPES=['매매','전세','월세','상가','토지','기타'];
+var MAX=12, editing=null, photo='', panel=document.getElementById('admin-panel');
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function safeUrl(u){return /^https?:\/\//i.test(u)?u:'';}
+function $(id){return document.getElementById(id);}
+
+function renderLinks(){
+  document.querySelectorAll('[data-link]').forEach(function(a){
+    var s=a.querySelector('small'); if(!a.dataset.sub)a.dataset.sub=s.textContent;
+    var u=safeUrl(data.links[a.dataset.link]||'');
+    if(!u&&a.hasAttribute('data-hide-empty')){a.hidden=true;return;}
+    a.hidden=false;
+    if(u){a.href=u;a.removeAttribute('aria-disabled');s.textContent=a.dataset.sub;}
+    else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');s.textContent='준비중';}
+  });
+}
+function renderNotice(){var n=$('notice');n.textContent=data.notice||'';n.hidden=!data.notice;}
+function renderListings(){
+  var box=$('listings');box.textContent='';
+  data.listings.forEach(function(it){
+    var c=el('div','lcard');
+    if(it.photo){var im=el('img');im.src=it.photo;im.alt=it.title;c.appendChild(im);}
+    var b=el('div','lb');
+    b.appendChild(el('span','badge',it.type));
+    b.appendChild(el('h3',null,it.title));
+    if(it.price)b.appendChild(el('div','pr',it.price));
+    if(it.area)b.appendChild(el('div',null,it.area));
+    if(it.desc)b.appendChild(el('p',null,it.desc));
+    c.appendChild(b);box.appendChild(c);
+  });
+  $('listings-sec').hidden=!data.listings.length;
+}
+function renderAll(){renderLinks();renderNotice();renderListings();}
+
+function buildDoc(){
+  var clone=document.documentElement.cloneNode(true);
+  clone.removeAttribute('data-theme');
+  clone.querySelector('#site-data').textContent=JSON.stringify(data).replace(/</g,'\\u003c');
+  var p=clone.querySelector('#admin-panel');p.textContent='';p.hidden=true;
+  return '<!doctype html>'+clone.outerHTML;
+}
+
+function renderAdminList(){
+  var box=$('a-list');box.textContent='';
+  if(!data.listings.length){box.appendChild(el('p',null,'아직 등록된 매물이 없습니다. 위 양식에서 등록해 보세요.'));return;}
+  data.listings.forEach(function(it){
+    var row=el('div','item');
+    if(it.photo){var im=el('img');im.src=it.photo;im.alt='';row.appendChild(im);}
+    row.appendChild(el('span',null,'['+it.type+'] '+it.title+(it.price?' / '+it.price:'')));
+    var eb=el('button',null,'수정');eb.type='button';
+    eb.onclick=function(){editing=it.id;photo=it.photo||'';$('a-type').value=it.type;$('a-title').value=it.title;$('a-price').value=it.price||'';$('a-area').value=it.area||'';$('a-desc').value=it.desc||'';showPrev();$('a-form-title').textContent='매물 수정';$('a-title').scrollIntoView({block:'center'});};
+    var db=el('button',null,'삭제');db.type='button';
+    db.onclick=function(){if(db.dataset.sure){data.listings=data.listings.filter(function(x){return x.id!==it.id});if(editing===it.id)resetForm();renderListings();renderAdminList();msg('삭제했습니다. [게시하기]를 눌러야 방문자 화면에 반영됩니다.');}else{db.dataset.sure='1';db.textContent='정말 삭제?';}};
+    row.appendChild(eb);row.appendChild(db);box.appendChild(row);
+  });
+}
+function msg(t){var m=$('a-msg');if(m)m.textContent=t;}
+function showPrev(){var p=$('a-prev');if(photo){p.src=photo;p.hidden=false;}else{p.hidden=true;}}
+function resetForm(){editing=null;photo='';['a-title','a-price','a-area','a-desc'].forEach(function(i){$(i).value='';});$('a-photo').value='';$('a-type').value=TYPES[0];$('a-form-title').textContent='매물 등록';showPrev();}
+
+function buildAdmin(art){
+  panel.innerHTML='<div class="wrap"><h2>관리자 페이지</h2><p class="lead">내용을 고친 뒤 맨 아래 [게시하기]를 눌러야 방문자 화면에 반영됩니다.</p>'
+  +'<div class="card"><h3>상단 공지 문구</h3><label for="a-notice">첫 화면 위에 띄울 안내 (비우면 숨김)</label><textarea id="a-notice" rows="2"></textarea></div>'
+  +'<div class="card"><h3>채널 주소</h3><div id="a-links"></div></div>'
+  +'<div class="card"><h3 id="a-form-title">매물 등록</h3><div class="row"><div><label for="a-type">유형</label><select id="a-type"></select></div><div><label for="a-price">가격</label><input type="text" id="a-price" placeholder="예) 매매 3억 2,000"></div><div><label for="a-area">면적·위치</label><input type="text" id="a-area" placeholder="예) 84㎡ · 녹양동"></div></div>'
+  +'<label for="a-title">제목</label><input type="text" id="a-title"><label for="a-desc">설명</label><textarea id="a-desc" rows="3"></textarea><label for="a-photo">사진 (자동으로 크기가 줄어듭니다)</label><input type="file" id="a-photo" accept="image/*"><img class="prev" id="a-prev" alt="미리보기" hidden>'
+  +'<p><button type="button" class="pri" id="a-save">매물 추가·저장</button> <button type="button" id="a-cancel">입력 취소</button></p></div>'
+  +'<div class="card"><h3>등록된 매물</h3><div id="a-list"></div></div>'
+  +'<div class="card"><h3>문의 접수함</h3><p style="margin:0 0 4px">전화·카톡·방문으로 받은 문의를 기록하고 처리 상태를 관리합니다. 대표님만 볼 수 있고, 기록하면 바로 저장됩니다(게시하기와 무관).</p><div class="row"><div><label for="a-iq-name">이름</label><input type="text" id="a-iq-name"></div><div><label for="a-iq-phone">연락처</label><input type="text" id="a-iq-phone"></div><div><label for="a-iq-via">받은 경로</label><select id="a-iq-via"><option>전화</option><option>카카오톡</option><option>방문</option><option>온라인</option></select></div></div><label for="a-iq-msg">문의 내용</label><textarea id="a-iq-msg" rows="2"></textarea><p><button type="button" class="pri" id="a-iq-save">문의 기록하기</button></p><div id="a-inq"></div></div>'
+  +'<div class="bar"><button type="button" class="pri" id="a-pub">게시하기</button><button type="button" id="a-close">닫기</button><span class="msg" id="a-msg" role="status"></span></div></div>';
+  TYPES.forEach(function(t){var o=el('option',null,t);o.value=t;$('a-type').appendChild(o);});
+  $('a-notice').value=data.notice||'';
+  $('a-notice').oninput=function(){data.notice=this.value.trim();renderNotice();};
+  Object.keys(LABELS).forEach(function(k){
+    var l=el('label',null,LABELS[k]+' 주소');l.htmlFor='a-l-'+k;
+    var i=el('input');i.type='text';i.id='a-l-'+k;i.placeholder='https://...';i.value=data.links[k]||'';
+    i.oninput=function(){data.links[k]=safeUrl(this.value.trim());renderLinks();};
+    $('a-links').appendChild(l);$('a-links').appendChild(i);
+  });
+  $('a-photo').onchange=function(){
+    var f=this.files&&this.files[0];if(!f)return;
+    var r=new FileReader();
+    r.onload=function(){var im=new Image();im.onload=function(){
+      var w=Math.min(640,im.width),h=Math.round(im.height*w/im.width);
+      var c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);
+      photo=c.toDataURL('image/jpeg',0.72);showPrev();};
+      im.onerror=function(){msg('사진을 열 수 없습니다. 다른 사진을 고르세요.');};im.src=r.result;};
+    r.readAsDataURL(f);
+  };
+  $('a-save').onclick=function(){
+    var title=$('a-title').value.trim();
+    if(!title){msg('제목을 입력해 주세요.');$('a-title').focus();return;}
+    var item={id:editing||Date.now().toString(36),type:$('a-type').value,title:title,price:$('a-price').value.trim(),area:$('a-area').value.trim(),desc:$('a-desc').value.trim(),photo:photo};
+    var idx=data.listings.findIndex(function(x){return x.id===item.id;});
+    if(idx>=0){data.listings[idx]=item;}
+    else{if(data.listings.length>=MAX){msg('매물은 최대 '+MAX+'개까지 등록합니다. 오래된 것을 삭제해 주세요.');return;}data.listings.unshift(item);}
+    resetForm();renderListings();renderAdminList();msg('저장했습니다. 아직 게시되지 않았습니다. [게시하기]를 눌러 주세요.');
+  };
+  $('a-cancel').onclick=resetForm;
+  $('a-close').onclick=function(){location.hash='';};
+  $('a-pub').onclick=function(){
+    var b=this;b.disabled=true;msg('게시하는 중입니다...');
+    Promise.resolve(art.publish(buildDoc())).then(function(){msg('게시했습니다.');},function(e){b.disabled=false;msg((e&&e.code==='conflict')?'다른 쪽에서 먼저 수정되었습니다. 페이지가 새로 고침됩니다.':'게시하지 못했습니다. 관리 권한이 있는 계정인지 확인해 주세요.');});
+  };
+  renderAdminList();
+  initInbox();
+}
+
+var unsub=null;
+function stopInbox(){if(unsub){unsub();unsub=null;}}
+async function initInbox(){
+  var box=$('a-inq'),db=null;
+  try{db=await claude.use('db');}catch(e){}
+  if(!db){box.textContent='문의 기록 기능을 사용할 수 없습니다.';return;}
+  var col=db.collection('inquiries');
+  $('a-iq-save').onclick=async function(){
+    var name=$('a-iq-name').value.trim(),m=$('a-iq-msg').value.trim();
+    if(!name&&!m){msg('이름이나 문의 내용을 입력해 주세요.');return;}
+    try{await col.add({name:name,phone:$('a-iq-phone').value.trim(),via:$('a-iq-via').value,msg:m,status:'신규',at:new Date().toISOString()});
+      ['a-iq-name','a-iq-phone','a-iq-msg'].forEach(function(i){$(i).value='';});msg('문의를 기록했습니다.');}
+    catch(e){msg('기록하지 못했습니다. 관리 권한을 확인해 주세요.');}
+  };
+  var timer=setTimeout(function(){box.textContent='불러오는 데 시간이 걸립니다...';},10000);
+  unsub=col.orderBy('at','desc').limit(200).onSnapshot(function(snap){
+    clearTimeout(timer);box.textContent='';
+    if(snap.empty){box.appendChild(el('p',null,'아직 기록된 문의가 없습니다.'));return;}
+    snap.docs.forEach(function(d){
+      var x=d.data(),ref=col.doc(d.id),row=el('div','iq'),h=el('div','h');
+      var when=x.at?new Date(x.at).toLocaleDateString('ko-KR'):'';
+      h.appendChild(el('span',null,'['+(x.via||'')+'] '+(x.name||'이름 없음')+(x.phone?' '+x.phone:'')+(when?' · '+when:'')));
+      row.appendChild(h);
+      if(x.msg)row.appendChild(el('p',null,x.msg));
+      var a=el('div','a'),s=el('select');s.setAttribute('aria-label','처리 상태');
+      ['신규','상담중','완료'].forEach(function(t){var o=el('option',null,t);o.value=t;if(t===x.status)o.selected=true;s.appendChild(o);});
+      s.onchange=function(){ref.update({status:s.value}).catch(function(){msg('상태를 바꾸지 못했습니다.');});};
+      var del=el('button',null,'삭제');del.type='button';
+      del.onclick=function(){if(del.dataset.sure){ref.delete();}else{del.dataset.sure='1';del.textContent='정말 삭제?';}};
+      a.appendChild(s);a.appendChild(del);row.appendChild(a);box.appendChild(row);
+    });
+  },function(){clearTimeout(timer);box.textContent='문의 목록을 불러오지 못했습니다.';});
+}
+
+function showMsgPanel(t){panel.innerHTML='<div class="wrap"><h2>관리자 페이지</h2><p>'+t+'</p><p><button type="button" id="a-close" style="font:inherit;padding:8px 16px">닫기</button></p></div>';$('a-close').onclick=function(){location.hash='';};}
+async function route(){
+  stopInbox();
+  if(location.hash!=='#admin'){panel.hidden=true;panel.textContent='';return;}
+  panel.hidden=false;
+  var art=null,ok=false;
+  try{if(window.claude){art=await claude.use('artifact');var u=await claude.use('user');ok=u?await u.canEdit():false;}}catch(e){}
+  if(!art||!ok){showMsgPanel('관리자 권한이 있는 계정으로 로그인해야 열 수 있습니다.');return;}
+  buildAdmin(art);panel.scrollIntoView();
+}
+renderAll();
+addEventListener('hashchange',route);
+route();
+})();
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy);
+    var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};
+    try{navigator.clipboard.writeText(el.textContent).then(done,function(){
+      var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);});}
+    catch(e){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  });
+});
+</script>
+</body>
+</html>
