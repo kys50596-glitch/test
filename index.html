@@ -155,7 +155,7 @@ footer p{margin:2px 0}
 
 <script>
 /* 여기에 주소(URL)를 붙여 넣으세요. 비워 두면 '준비중'으로 표시됩니다. */
-var LINKS={naver:'',kakao:'',blog:'',youtube:'',insta:''};
+var LINKS={naver:'https://fin.land.naver.com/realtors/kys50596',kakao:'https://open.kakao.com/o/sGoEftVi',blog:'https://blog.naver.com/kys5121',youtube:'https://www.youtube.com/@%EC%9D%B4%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81%EB%85%B9%EC%96%91%EC%97%AD',insta:'https://instagram.com/kys50596'};
 document.querySelectorAll('[data-link]').forEach(function(a){
   var u=LINKS[a.dataset.link];
   if(u){a.href=u;}else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.querySelector('small').textContent='준비중';}
