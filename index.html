@@ -59,9 +59,15 @@ dl.info dd{margin:0;min-width:0}
 .map.m1{background:#0e5c47;color:#f9ebd7}
 .map.m2{background:#f5e45a;color:#1c1a0a}
 .map.m3{background:#e34222;color:#fff6ea}
-.office{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:32px;align-items:center}
-.office img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block;background:var(--band)}
-@media (max-width:700px){.office{grid-template-columns:1fr}.office img{aspect-ratio:4/3}}
+.office{display:grid;grid-template-columns:minmax(0,520px) 1fr;gap:32px;align-items:stretch}
+.office img{width:100%;align-self:start;aspect-ratio:1/1;object-fit:cover;border-radius:10px;display:block;background:var(--band)}
+.ob{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.steps li{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 16px;font-weight:700}
+.steps b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.visit{background:var(--brand);color:var(--brand-fg);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.visit a{color:inherit;font-weight:700}
+@media (max-width:700px){.office{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.map{transition:none}.map:hover{transform:none}}
 .sns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .sns a{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
@@ -125,7 +131,7 @@ footer dd{margin:0;min-width:0}
   <div class="wrap">
     <span class="tag">의정부 녹양동 · 공인중개사사무소</span>
     <h1>녹양역 일대 매매·전세·월세.<br>공인중개사가 직접 상담합니다</h1>
-    <p>아파트, 상가, 토지까지 가격 흐름과 주변 환경을 솔직하게 말씀드립니다. 급하지 않으셔도 편하게 전화 주세요.</p>
+    <p>아파트, 상가, 토지까지 가격 흐름과 주변 환경을 솔직하게 말씀드립니다. 편하게 전화 주세요.</p>
     <div class="btns">
       <a class="btn p" href="tel:01033645121">대표 휴대폰 상담<small>010-3364-5121</small></a>
       <a class="btn s" href="tel:0318735454">사무실 전화<small>031-873-5454</small></a>
@@ -186,14 +192,23 @@ footer dd{margin:0;min-width:0}
 
 <section>
   <div class="wrap office">
-    <img src="office.jpg" alt="이편한세상녹양역부동산 사무실 내부, 상담 테이블과 모니터" width="900" height="1600" loading="lazy">
-    <div>
-      <h2>사무실 안내</h2>
-      <p class="lead" style="margin:0 0 12px">상가 104호 사무실에서 편안하게 앉아 상담하실 수 있습니다.</p>
-      <ul class="pts">
-        <li>모니터로 매물 자료와 위치를 함께 보며 상담</li>
-        <li>방문 전 전화 주시면 자료를 미리 준비</li>
-      </ul>
+    <img src="office.jpg" alt="이편한세상녹양역부동산 사무실 내부, 상담 테이블과 모니터" loading="lazy">
+    <div class="ob">
+      <div>
+        <h2>사무실 안내</h2>
+        <p class="lead" style="margin:0">모니터로 매물 자료와 위치를 함께 보며, 편안하게 앉아 상담하실 수 있습니다.</p>
+      </div>
+      <ol class="steps">
+        <li><b>1</b>전화·카톡으로 문의</li>
+        <li><b>2</b>원하시는 조건 상담</li>
+        <li><b>3</b>매물 확인과 현장 안내</li>
+        <li><b>4</b>계약부터 잔금까지 함께</li>
+      </ol>
+      <div class="visit">
+        <span>경기도 의정부시 녹양로34번길 47, 상가 104호</span>
+        <span>방문 전 전화 주시면 자료를 미리 준비해 두겠습니다.</span>
+        <a href="tel:0318735454">☎ 031-873-5454</a>
+      </div>
     </div>
   </div>
 </section>
