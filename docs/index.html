@@ -63,7 +63,10 @@ dl.info dd{margin:0;min-width:0}
 .map:hover{transform:translateY(-2px)}
 .map.m1{background:#0e5c47;color:#f9ebd7}
 .map.m2{background:#f5e45a;color:#1c1a0a}
-.map.m3{background:#2f7fd1;color:#fff}
+.map.m3{background:#e34222;color:#fff6ea}
+.office{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:32px;align-items:center}
+.office img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block;background:var(--band)}
+@media (max-width:700px){.office{grid-template-columns:1fr}.office img{aspect-ratio:4/3}}
 @media (prefers-reduced-motion:reduce){.map{transition:none}.map:hover{transform:none}}
 .sns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .sns a{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
@@ -184,6 +187,20 @@ footer dd{margin:0;min-width:0}
       <li>학군, 마트, 병원 등 생활 편의 안내</li>
       <li>매도·매수·임대·임차 모두 상담 가능</li>
     </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap office">
+    <img src="office.jpg" alt="이편한세상녹양역부동산 사무실 내부, 상담 테이블과 모니터" width="900" height="1600" loading="lazy">
+    <div>
+      <h2>사무실 안내</h2>
+      <p class="lead" style="margin:0 0 12px">상가 104호 사무실에서 편안하게 앉아 상담하실 수 있습니다.</p>
+      <ul class="pts">
+        <li>모니터로 매물 자료와 위치를 함께 보며 상담</li>
+        <li>방문 전 전화 주시면 자료를 미리 준비</li>
+      </ul>
+    </div>
   </div>
 </section>
 
