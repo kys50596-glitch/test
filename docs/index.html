@@ -58,7 +58,13 @@ dl.info dd{margin:0;min-width:0}
 .num{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
 .copy{margin-left:8px;font:inherit;font-size:.8rem;padding:2px 10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;cursor:pointer}
 .maps{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.map{display:inline-block;background:var(--brand);color:var(--brand-fg);padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:700}
+.map{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 1px 0 rgba(0,0,0,.18),0 6px 14px -8px rgba(0,0,0,.45);transition:transform .15s ease,box-shadow .15s ease}
+.map svg{width:18px;height:18px;flex:none}
+.map:hover{transform:translateY(-2px)}
+.map.m1{background:#0e5c47;color:#f9ebd7}
+.map.m2{background:#f5e45a;color:#1c1a0a}
+.map.m3{background:#2f7fd1;color:#fff}
+@media (prefers-reduced-motion:reduce){.map{transition:none}.map:hover{transform:none}}
 .sns{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .sns a{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none;font-weight:700;min-width:0}
 .sns a span.t{display:flex;flex-direction:column;min-width:0;line-height:1.4}
@@ -169,7 +175,7 @@ footer dd{margin:0;min-width:0}
 <section class="band">
   <div class="wrap two">
     <div>
-      <h2>녹양동 생활권 안내</h2>
+      <h2>녹양역 생활권 안내</h2>
       <p class="lead" style="margin:0">매물을 보시기 전에 동네부터 먼저 설명해 드립니다.</p>
     </div>
     <ul class="pts">
@@ -187,9 +193,9 @@ footer dd{margin:0;min-width:0}
       <h2>오시는 길</h2>
       <p class="lead">전화로 방문 시간을 말씀해 주시면 미리 준비해 두겠습니다.</p>
       <div class="maps">
-        <a class="map" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">네이버지도</a>
-        <a class="map" href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">카카오맵</a>
-        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">구글지도</a>
+        <a class="map m1" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>네이버지도</a>
+        <a class="map m2" href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>카카오맵</a>
+        <a class="map m3" href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>구글지도</a>
       </div>
     </div>
     <dl class="info">
