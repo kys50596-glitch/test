@@ -1,0 +1,143 @@
+<title>이편한세상녹양역부동산</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;800&display=swap">
+<style>
+/* Layout: 상단 고정 연락처 바 → 히어로 → 중개 분야 → 녹양역 동네 안내 → 오시는 길 → 사업자 정보 푸터 */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --fg:#1c2623; --muted:#5b6762;
+  --line:#dde2df; --brand:#12503f; --brand-fg:#ffffff; --accent:#c4561d; --accent-fg:#ffffff;
+  --band:#e8efeb;
+  --serif:"Noto Serif KR","Batang",serif; --sans:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121816; --surface:#1a2320; --fg:#eef2f0; --muted:#a3b0aa; --line:#2c3a35;
+  --brand:#5fb598; --brand-fg:#0c1512; --accent:#ee8a55; --accent-fg:#1a0e06; --band:#17211d; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#121816; --surface:#1a2320; --fg:#eef2f0; --muted:#a3b0aa; --line:#2c3a35;
+  --brand:#5fb598; --brand-fg:#0c1512; --accent:#ee8a55; --accent-fg:#1a0e06; --band:#17211d; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.7;margin:0;word-break:keep-all}
+h1,h2,h3{font-family:var(--serif);line-height:1.3;text-wrap:balance;margin:0}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--brand)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--brand);color:var(--brand-fg)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px;flex-wrap:wrap}
+.top b{font-family:var(--serif);font-size:1.05rem}
+.top a{text-decoration:none;font-weight:700;white-space:nowrap}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{background:var(--band);padding-block:56px 48px;margin-top:0}
+.hero .tag{display:inline-block;font-size:.9rem;font-weight:700;color:var(--brand);letter-spacing:.04em;margin-bottom:12px}
+.hero h1{font-size:clamp(1.9rem,6vw,3rem);font-weight:800;max-width:18em}
+.hero p{max-width:34em;color:var(--muted);margin:16px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;flex-direction:column;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:700;min-width:210px}
+.btn small{font-weight:400;font-size:.82rem;opacity:.85}
+.btn.p{background:var(--accent);color:var(--accent-fg)}
+.btn.s{background:var(--brand);color:var(--brand-fg)}
+section{padding-block:52px}
+section h2{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:8px}
+.lead{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;min-width:0}
+.card h3{font-size:1.15rem;margin-bottom:6px;color:var(--brand)}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.band{background:var(--band)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.two>*{min-width:0}
+ul.pts{margin:0;padding-left:1.2em}
+ul.pts li{margin-bottom:8px}
+dl.info{margin:0;display:grid;grid-template-columns:7.5em 1fr;gap:10px 14px}
+dl.info dt{font-weight:700;color:var(--brand)}
+dl.info dd{margin:0;min-width:0}
+.num{font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+.copy{margin-left:8px;font:inherit;font-size:.8rem;padding:2px 10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:4px;cursor:pointer}
+.map{display:inline-block;margin-top:16px;background:var(--brand);color:var(--brand-fg);padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:700}
+footer{background:var(--brand);color:var(--brand-fg);padding-block:32px;font-size:.92rem}
+footer p{margin:2px 0}
+@media (max-width:700px){.two{grid-template-columns:1fr}.btn{width:100%}dl.info{grid-template-columns:1fr;gap:0}dl.info dd{margin-bottom:12px}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <b>이편한세상녹양역부동산</b>
+    <a href="tel:0318735454">☎ 031-873-5454</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="tag">의정부 녹양동 · 공인중개사사무소</span>
+    <h1>녹양역 일대 매매·전세·월세,<br>20년 경력 공인중개사가 직접 상담합니다</h1>
+    <p>아파트, 상가, 토지까지 가격 흐름과 주변 환경을 솔직하게 말씀드립니다. 급하지 않으셔도 편하게 전화 주세요.</p>
+    <div class="btns">
+      <a class="btn p" href="tel:01033645121">대표 휴대폰 상담<small>010-3364-5121</small></a>
+      <a class="btn s" href="tel:0318735454">사무실 전화<small>031-873-5454</small></a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>중개 분야</h2>
+    <p class="lead">거래 종류에 맞춰 필요한 확인 사항을 꼼꼼히 챙겨드립니다.</p>
+    <div class="grid">
+      <div class="card"><h3>아파트 매매</h3><p>실거래 사례와 현재 호가를 비교해 적정 가격대를 안내합니다.</p></div>
+      <div class="card"><h3>전세 · 월세</h3><p>등기부 권리관계, 보증금 안전 여부까지 계약 전에 함께 확인합니다.</p></div>
+      <div class="card"><h3>상가 · 사무실</h3><p>유동인구와 업종 적합성을 살펴 임대·매매를 도와드립니다.</p></div>
+      <div class="card"><h3>토지 · 기타</h3><p>용도지역과 개발 여건을 확인한 뒤 거래 방향을 정리해 드립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap two">
+    <div>
+      <h2>녹양동 생활권 안내</h2>
+      <p class="lead" style="margin:0">매물을 보시기 전에 동네부터 먼저 설명해 드립니다.</p>
+    </div>
+    <ul class="pts">
+      <li>수도권 전철 1호선 녹양역 인근 생활권</li>
+      <li>단지별 시세와 최근 거래 흐름 상담</li>
+      <li>학군, 마트, 병원 등 생활 편의 안내</li>
+      <li>매도·매수·임대·임차 모두 상담 가능</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap two">
+    <div>
+      <h2>오시는 길</h2>
+      <p class="lead">전화로 방문 시간을 말씀해 주시면 미리 준비해 두겠습니다.</p>
+      <a class="map" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%9D%98%EC%A0%95%EB%B6%80%EC%8B%9C%20%EB%85%B9%EC%96%91%EB%A1%9C34%EB%B2%88%EA%B8%B8%2047" target="_blank" rel="noopener">네이버 지도에서 위치 보기</a>
+    </div>
+    <dl class="info">
+      <dt>상호</dt><dd>이편한세상녹양역부동산</dd>
+      <dt>주소</dt><dd>경기도 의정부시 녹양로34번길 47, 상가 104호</dd>
+      <dt>사무실</dt><dd><span class="num" id="t1">031-873-5454</span><button class="copy" data-copy="t1" type="button">복사</button></dd>
+      <dt>휴대폰</dt><dd><span class="num" id="t2">010-3364-5121</span><button class="copy" data-copy="t2" type="button">복사</button></dd>
+      <dt>등록번호</dt><dd>가 040-4280</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>이편한세상녹양역부동산</b> | 중개업무등록번호 가 040-4280</p>
+    <p>경기도 의정부시 녹양로34번길 47, 상가 104호</p>
+    <p>TEL 031-873-5454 | 010-3364-5121</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy);
+    var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};
+    try{navigator.clipboard.writeText(el.textContent).then(done,function(){
+      var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);});}
+    catch(e){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  });
+});
+</script>
