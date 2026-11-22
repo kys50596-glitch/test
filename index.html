@@ -86,6 +86,11 @@ footer dd{margin:0;min-width:0}
 .adm .item span{flex:1;min-width:0;overflow-wrap:anywhere}
 .adm .prev{max-width:160px;max-height:120px;display:block;margin-top:8px;border-radius:4px}
 .adm .msg{font-weight:700}
+.adm .iq{padding:10px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.adm .iq .h{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:700}
+.adm .iq p{margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.adm .iq .a{display:flex;gap:8px;flex-wrap:wrap}
+.adm .iq select{width:auto}
 .adm-link{color:inherit;opacity:.7;font-size:.85rem;display:inline-block;margin-top:14px}
 @media (max-width:700px){.two{grid-template-columns:1fr}.btn{width:100%}dl.info{grid-template-columns:1fr;gap:0}dl.info dd{margin-bottom:12px}}
 </style>
@@ -122,6 +127,7 @@ footer dd{margin:0;min-width:0}
       <a href="#" data-link="blog" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#1ec800"/><rect x="11" y="10" width="22" height="24" rx="3" fill="#fff"/><path d="M15 17h14M15 22h14M15 27h8" stroke="#1ec800" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">블로그<small>지역 시황·매물 글</small></span></a>
       <a href="#" data-link="youtube" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#ff0000"/><rect x="8" y="12" width="28" height="20" rx="6" fill="#fff"/><path d="M19 17.5v9l8-4.5z" fill="#ff0000"/></svg><span class="t">유튜브 채널<small>영상으로 보는 매물</small></span></a>
       <a href="#" data-link="insta" target="_blank" rel="noopener"><svg viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fdc468"/><stop offset=".5" stop-color="#df4996"/><stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs><rect width="44" height="44" fill="url(#ig)"/><rect x="10" y="10" width="24" height="24" rx="7" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="22" cy="22" r="5.6" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="29" cy="15" r="1.6" fill="#fff"/></svg><span class="t">인스타그램<small>사진으로 보는 소식</small></span></a>
+      <a href="#" data-link="form" data-hide-empty="1" target="_blank" rel="noopener" hidden><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#12503f"/><rect x="11" y="9" width="22" height="26" rx="3" fill="#fff"/><path d="M15 17h14M15 22h14M15 27h7" stroke="#12503f" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">온라인 문의<small>남기시면 연락드립니다</small></span></a>
     </div>
   </div>
 </section>
@@ -196,11 +202,11 @@ footer dd{margin:0;min-width:0}
   </div>
 </footer>
 
-<script type="application/json" id="site-data">{"notice":"","links":{"naver":"https://fin.land.naver.com/realtors/kys50596","kakao":"https://open.kakao.com/o/sGoEftVi","blog":"https://blog.naver.com/kys5121","youtube":"https://www.youtube.com/@%EC%9D%B4%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81%EB%85%B9%EC%96%91%EC%97%AD","insta":"https://instagram.com/kys50596"},"listings":[]}</script>
+<script type="application/json" id="site-data">{"notice":"","links":{"naver":"https://fin.land.naver.com/realtors/kys50596","kakao":"https://open.kakao.com/o/sGoEftVi","blog":"https://blog.naver.com/kys5121","youtube":"https://www.youtube.com/@%EC%9D%B4%ED%8E%B8%ED%95%9C%EC%84%B8%EC%83%81%EB%85%B9%EC%96%91%EC%97%AD","insta":"https://instagram.com/kys50596","form":""},"listings":[]}</script>
 <script>
 (function(){
 var data=JSON.parse(document.getElementById('site-data').textContent);
-var LABELS={naver:'네이버 매물 보기',kakao:'카카오톡 오픈채팅',blog:'블로그',youtube:'유튜브 채널',insta:'인스타그램'};
+var LABELS={naver:'네이버 매물 보기',kakao:'카카오톡 오픈채팅',blog:'블로그',youtube:'유튜브 채널',insta:'인스타그램',form:'온라인 문의 폼(구글 폼 등, 비우면 버튼 숨김)'};
 var TYPES=['매매','전세','월세','상가','토지','기타'];
 var MAX=12, editing=null, photo='', panel=document.getElementById('admin-panel');
 function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
@@ -211,6 +217,8 @@ function renderLinks(){
   document.querySelectorAll('[data-link]').forEach(function(a){
     var s=a.querySelector('small'); if(!a.dataset.sub)a.dataset.sub=s.textContent;
     var u=safeUrl(data.links[a.dataset.link]||'');
+    if(!u&&a.hasAttribute('data-hide-empty')){a.hidden=true;return;}
+    a.hidden=false;
     if(u){a.href=u;a.removeAttribute('aria-disabled');s.textContent=a.dataset.sub;}
     else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');s.textContent='준비중';}
   });
@@ -267,6 +275,7 @@ function buildAdmin(art){
   +'<label for="a-title">제목</label><input type="text" id="a-title"><label for="a-desc">설명</label><textarea id="a-desc" rows="3"></textarea><label for="a-photo">사진 (자동으로 크기가 줄어듭니다)</label><input type="file" id="a-photo" accept="image/*"><img class="prev" id="a-prev" alt="미리보기" hidden>'
   +'<p><button type="button" class="pri" id="a-save">매물 추가·저장</button> <button type="button" id="a-cancel">입력 취소</button></p></div>'
   +'<div class="card"><h3>등록된 매물</h3><div id="a-list"></div></div>'
+  +'<div class="card"><h3>문의 접수함</h3><p style="margin:0 0 4px">전화·카톡·방문으로 받은 문의를 기록하고 처리 상태를 관리합니다. 대표님만 볼 수 있고, 기록하면 바로 저장됩니다(게시하기와 무관).</p><div class="row"><div><label for="a-iq-name">이름</label><input type="text" id="a-iq-name"></div><div><label for="a-iq-phone">연락처</label><input type="text" id="a-iq-phone"></div><div><label for="a-iq-via">받은 경로</label><select id="a-iq-via"><option>전화</option><option>카카오톡</option><option>방문</option><option>온라인</option></select></div></div><label for="a-iq-msg">문의 내용</label><textarea id="a-iq-msg" rows="2"></textarea><p><button type="button" class="pri" id="a-iq-save">문의 기록하기</button></p><div id="a-inq"></div></div>'
   +'<div class="bar"><button type="button" class="pri" id="a-pub">게시하기</button><button type="button" id="a-close">닫기</button><span class="msg" id="a-msg" role="status"></span></div></div>';
   TYPES.forEach(function(t){var o=el('option',null,t);o.value=t;$('a-type').appendChild(o);});
   $('a-notice').value=data.notice||'';
@@ -303,10 +312,46 @@ function buildAdmin(art){
     Promise.resolve(art.publish(buildDoc())).then(function(){msg('게시했습니다.');},function(e){b.disabled=false;msg((e&&e.code==='conflict')?'다른 쪽에서 먼저 수정되었습니다. 페이지가 새로 고침됩니다.':'게시하지 못했습니다. 관리 권한이 있는 계정인지 확인해 주세요.');});
   };
   renderAdminList();
+  initInbox();
+}
+
+var unsub=null;
+function stopInbox(){if(unsub){unsub();unsub=null;}}
+async function initInbox(){
+  var box=$('a-inq'),db=null;
+  try{db=await claude.use('db');}catch(e){}
+  if(!db){box.textContent='문의 기록 기능을 사용할 수 없습니다.';return;}
+  var col=db.collection('inquiries');
+  $('a-iq-save').onclick=async function(){
+    var name=$('a-iq-name').value.trim(),m=$('a-iq-msg').value.trim();
+    if(!name&&!m){msg('이름이나 문의 내용을 입력해 주세요.');return;}
+    try{await col.add({name:name,phone:$('a-iq-phone').value.trim(),via:$('a-iq-via').value,msg:m,status:'신규',at:new Date().toISOString()});
+      ['a-iq-name','a-iq-phone','a-iq-msg'].forEach(function(i){$(i).value='';});msg('문의를 기록했습니다.');}
+    catch(e){msg('기록하지 못했습니다. 관리 권한을 확인해 주세요.');}
+  };
+  var timer=setTimeout(function(){box.textContent='불러오는 데 시간이 걸립니다...';},10000);
+  unsub=col.orderBy('at','desc').limit(200).onSnapshot(function(snap){
+    clearTimeout(timer);box.textContent='';
+    if(snap.empty){box.appendChild(el('p',null,'아직 기록된 문의가 없습니다.'));return;}
+    snap.docs.forEach(function(d){
+      var x=d.data(),ref=col.doc(d.id),row=el('div','iq'),h=el('div','h');
+      var when=x.at?new Date(x.at).toLocaleDateString('ko-KR'):'';
+      h.appendChild(el('span',null,'['+(x.via||'')+'] '+(x.name||'이름 없음')+(x.phone?' '+x.phone:'')+(when?' · '+when:'')));
+      row.appendChild(h);
+      if(x.msg)row.appendChild(el('p',null,x.msg));
+      var a=el('div','a'),s=el('select');s.setAttribute('aria-label','처리 상태');
+      ['신규','상담중','완료'].forEach(function(t){var o=el('option',null,t);o.value=t;if(t===x.status)o.selected=true;s.appendChild(o);});
+      s.onchange=function(){ref.update({status:s.value}).catch(function(){msg('상태를 바꾸지 못했습니다.');});};
+      var del=el('button',null,'삭제');del.type='button';
+      del.onclick=function(){if(del.dataset.sure){ref.delete();}else{del.dataset.sure='1';del.textContent='정말 삭제?';}};
+      a.appendChild(s);a.appendChild(del);row.appendChild(a);box.appendChild(row);
+    });
+  },function(){clearTimeout(timer);box.textContent='문의 목록을 불러오지 못했습니다.';});
 }
 
 function showMsgPanel(t){panel.innerHTML='<div class="wrap"><h2>관리자 페이지</h2><p>'+t+'</p><p><button type="button" id="a-close" style="font:inherit;padding:8px 16px">닫기</button></p></div>';$('a-close').onclick=function(){location.hash='';};}
 async function route(){
+  stopInbox();
   if(location.hash!=='#admin'){panel.hidden=true;panel.textContent='';return;}
   panel.hidden=false;
   var art=null,ok=false;
